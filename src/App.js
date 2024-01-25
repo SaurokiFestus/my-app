@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Create from './components/Create';
 import Edit from './components/Edit';
 import Counter from './components/Counter';
-
+import Todo from './components/Todo';
 function App() {
   return (
     <div className="App">
@@ -15,6 +15,7 @@ function App() {
         <Route path="/create" element={<Create/>} />
         <Route path="/edit" element={<Edit/>} />
         <Route path="/counter" element={<Counter/>} />
+        <Route path="/todo" element={<Todo/>} />
       </Routes>
       </BrowserRouter>
     </div>
