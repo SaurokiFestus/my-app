@@ -1,8 +1,27 @@
 import React, { Fragment } from 'react'
-import { Table } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Employees from './Employees'
+import {Link, useNavigate} from 'react-router-dom'
+
 function Home() {
+    let history = useNavigate();
+
+    const handleDelete= (id) =>{
+        let index = Employees.map(function(e){
+            return  e.id
+        }).indexOf(id);
+        Employees.splice(index,1);
+        
+        history('/')
+    }
+
+    const handleEdit=(id, name, age)=>{
+        localStorage.setItem('name', name)
+        localStorage.setItem('age', age)
+        localStorage.setItem('id', id)
+    }
+
   return (
     
     <Fragment>
@@ -16,6 +35,9 @@ function Home() {
                         <th>
                             Age
                         </th>
+                        <th>
+                            Action
+                        </th>
                     </tr>
                 </thead> 
                 <tbody>
@@ -24,12 +46,20 @@ function Home() {
                         ?
                         Employees.map((item)=>{
                             return(
-                                <tr>
+                                <tr key={item.id}>
                                     <td>
                                         {item.name}
                                     </td>
                                     <td>
                                         {item.age}
+                                    </td>
+                                    <td>
+                                        <Button onClick={()=>handleDelete(item.id)}>DELETE</Button>
+                                        &nbsp;
+                                        <Link to='/edit'>
+                                        <Button onClick={()=>handleEdit(item.id, item.name, item.age)}>EDIT</Button>
+                                        </Link>
+                                        
                                     </td>
                                 </tr>
                             )
@@ -39,6 +69,10 @@ function Home() {
                     }
                 </tbody>
             </Table>
+            <br/>
+            <Link className='d-grid gap-2' to="/create">
+            <Button size ="lg">Create</Button>
+            </Link>
 
         </div>
     </Fragment>
