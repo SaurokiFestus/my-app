@@ -6,6 +6,7 @@ import Create from './components/Create';
 import Edit from './components/Edit';
 import Counter from './components/Counter';
 import Todo from './components/Todo';
+import Fetch from './components/Fetch';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
         <Route path="/edit" element={<Edit/>} />
         <Route path="/counter" element={<Counter/>} />
         <Route path="/todo" element={<Todo/>} />
+        <Route path="/fetch" element={<Fetch/>} />
       </Routes>
       </BrowserRouter>
     </div>

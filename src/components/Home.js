@@ -79,6 +79,9 @@ function Home() {
             <Link className='d-grid gap-2 p-2' to="/todo">
             <Button size ="lg">To do list</Button>
             </Link>
+            <Link className='d-grid gap-2 p-2' to="/fetch">
+            <Button size ="lg">Fetch Data</Button>
+            </Link>
 
         </div>
     </Fragment>
