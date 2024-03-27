@@ -5,7 +5,7 @@ function Fetch() {
     //state to store the fetched data
     const [todos, setTodos] = useState([])
 
-    //useffect to fectch data when component renders
+    //useffect to fetch data when component renders
     useEffect(()=>{
         const fetchData=async()=>{
             try{
@@ -25,6 +25,7 @@ function Fetch() {
 
         //call the func fetchData
         fetchData()
+        // [] is the dependency array to ensure that the component renders once
     },[])
   return (
     <div>
