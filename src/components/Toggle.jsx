@@ -2,11 +2,12 @@ import React, {useState} from 'react'
 
 function Toggle() {
     const [toggle, setToggle]=useState();
+    const bgColor = {backgroundColor: toggle}
   return (
-    <div>
+    <div style={bgColor}>
         <p>The toggle is {toggle}</p>
-        <button onClick={()=>setToggle("On")}>On</button>
-        <button onClick={()=>setToggle("Off")}>Off</button>
+        <button onClick={()=>setToggle("Blue")}>Blue</button>
+        <button onClick={()=>setToggle("White")}>White</button>
     </div>
   )
 }
